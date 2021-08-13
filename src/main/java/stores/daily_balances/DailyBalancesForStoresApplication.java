@@ -3,6 +3,7 @@ package stores.daily_balances;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.core.io.ResourceLoader;
 import stores.daily_balances.entity.Product;
 import stores.daily_balances.repository.ProductRepository;
@@ -17,7 +18,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 @SpringBootApplication
-public class DailyBalancesForStoresApplication {
+public class DailyBalancesForStoresApplication extends SpringBootServletInitializer {
 
     @Autowired
     private ProductRepository productRepository;
