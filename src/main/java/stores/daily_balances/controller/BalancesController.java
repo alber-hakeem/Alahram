@@ -12,7 +12,7 @@ public class BalancesController {
     @Autowired
     private ProductServices productServices;
 
-    @RequestMapping("")
+    @RequestMapping("/")
     private String home(Model model) {
 
         model.addAttribute("LDPE", productServices.getProductsByType("LDPE"));
