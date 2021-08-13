@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{css/styles.css}"/>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@1,300;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        $(document).ready(function(){
+            $('.search').on('keyup',function(){
+                var searchTerm = $(this).val().toLowerCase();
+                $('#userTbl tbody tr').each(function(){
+                    var lineStr = $(this).text().toLowerCase();
+                    if(lineStr.indexOf(searchTerm) === -1){
+                        $(this).hide();
+                    }else{
+                        $(this).show();
+                    }
+                });
+            });
+        });
+    </script>
+
+    <title>Daily Balances For Stores</title>
+</head>
+<body>
+    <header>
+        <h1>الأرصدة اليومية للمخازن</h1>
+        <div>
+            تاريخ اليوم : 04 - 08 - 2021
+            <br/>
+            يضاف 300 جنيها للاسعار من القاهرة لسوهاج
+            <br/>
+            يخصم 100 جنيها ف حالة قيام العميل بالتحميل
+        </div>
+        <h4>يتم زيادة 1000 جنية فوق الاسعار الموضحة بالقايمة للعميل الاجل (أجل شهر)</h4>
+    </header>
+
+    <div class="form-group search-bar">
+        <input type="text" class="search form-control" placeholder="What you looking for?">
+    </div>
+
+    <div class="data">
+        <h2>LDPE & EXCEED & INABUL</h2>
+        <h3>الاجمالي: 733,402.00</h3>
+        <table class="LDPE table table-striped" id="userTbl">
+            <thead>
+                <tr>
+                    <th>سعر المصنع</th>
+                    <th>سعر التاجر</th>
+                    <th>الاجمالي</th>
+                    <th>اسكندريه</th>
+                    <th>باسوس</th>
+                    <th>بدر</th>
+                    <th>الكود</th>
+                    <th>الصنف</th>
+                    <th>م</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="LDPEproduct, iter : ${LDPE}">
+                    <td th:text="${LDPEproduct.factoryPrice}"></td>
+                    <td th:text="${LDPEproduct.merchantPrice}"></td>
+                    <td th:text="${LDPEproduct.total}"></td>
+                    <td th:text="${LDPEproduct.alex}"></td>
+                    <td th:text="${LDPEproduct.basos}"></td>
+                    <td th:text="${LDPEproduct.badr}"></td>
+                    <td th:text="${LDPEproduct.code}"></td>
+                    <td th:text="${LDPEproduct.name}"></td>
+                    <td th:text="${iter.index + 1}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="LLDPE table table-striped" id="userTbl">
+            <h2>LLDPE</h2>
+            <h3>الاجمالي : 508,125.000</h3>
+            <thead>
+                <tr>
+                    <th>سعر المصنع</th>
+                    <th>سعر التاجر</th>
+                    <th>الاجمالي</th>
+                    <th>اسكندريه</th>
+                    <th>باسوس</th>
+                    <th>بدر</th>
+                    <th>الكود</th>
+                    <th>الصنف</th>
+                    <th>م</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="LLDPEproduct, iter : ${LLDPE}">
+                    <td th:text="${LLDPEproduct.factoryPrice}"></td>
+                    <td th:text="${LLDPEproduct.merchantPrice}"></td>
+                    <td th:text="${LLDPEproduct.total}"></td>
+                    <td th:text="${LLDPEproduct.alex}"></td>
+                    <td th:text="${LLDPEproduct.basos}"></td>
+                    <td th:text="${LLDPEproduct.badr}"></td>
+                    <td th:text="${LLDPEproduct.code}"></td>
+                    <td th:text="${LLDPEproduct.name}"></td>
+                    <td th:text="${iter.index + 1}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="HDPE table table-striped" id="userTbl">
+            <h2>HDPE</h2>
+            <h3>الاجمالي : 759,225.000</h3>
+            <thead>
+                <tr>
+                    <th>سعر المصنع</th>
+                    <th>سعر التاجر</th>
+                    <th>الاجمالي</th>
+                    <th>اسكندريه</th>
+                    <th>باسوس</th>
+                    <th>بدر</th>
+                    <th>الكود</th>
+                    <th>الصنف</th>
+                    <th>م</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="HDPEproduct, iter : ${HDPE}">
+                    <td th:text="${HDPEproduct.factoryPrice}"></td>
+                    <td th:text="${HDPEproduct.merchantPrice}"></td>
+                    <td th:text="${HDPEproduct.total}"></td>
+                    <td th:text="${HDPEproduct.alex}"></td>
+                    <td th:text="${HDPEproduct.basos}"></td>
+                    <td th:text="${HDPEproduct.badr}"></td>
+                    <td th:text="${HDPEproduct.code}"></td>
+                    <td th:text="${HDPEproduct.name}"></td>
+                    <td th:text="${iter.index + 1}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="PVC table table-striped" id="userTbl">
+            <h2>PVC & PS &GPPS</h2>
+            <h3>الاجمالي : 1,730,519.000</h3>
+            <thead>
+            <tr>
+                <th>سعر المصنع</th>
+                <th>سعر التاجر</th>
+                <th>الاجمالي</th>
+                <th>اسكندريه</th>
+                <th>باسوس</th>
+                <th>بدر</th>
+                <th>الكود</th>
+                <th>الصنف</th>
+                <th>م</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="PVCproduct, iter : ${PVC}">
+                <td th:text="${PVCproduct.factoryPrice}"></td>
+                <td th:text="${PVCproduct.merchantPrice}"></td>
+                <td th:text="${PVCproduct.total}"></td>
+                <td th:text="${PVCproduct.alex}"></td>
+                <td th:text="${PVCproduct.basos}"></td>
+                <td th:text="${PVCproduct.badr}"></td>
+                <td th:text="${PVCproduct.code}"></td>
+                <td th:text="${PVCproduct.name}"></td>
+                <td th:text="${iter.index + 1}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

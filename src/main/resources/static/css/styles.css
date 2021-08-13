@@ -1,0 +1,72 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+}
+body {
+    padding: 20px 60px;
+    text-align: center;
+}
+
+header  {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+header h4 {
+    font-weight: normal;
+}
+
+header div {
+    line-height: 1.5;
+    font-size: 20px;
+}
+
+.search-bar {
+    margin: 40px 20%;
+    padding-bottom: 5px;
+}
+
+.search-bar input[type=text] {
+    text-align: center;
+    border: 1px solid black;
+    font-size: 25px;
+    height: 55px;
+}
+
+.data {
+    padding-top: 10px;
+}
+
+.data div h2 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.data table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.data table thead tr th {
+    text-align: center;
+}
+
+.data table tbody tr td {
+    font-size: 18px;
+}
+
+.data table tbody tr:nth-child(even) {
+    background-color: #cececed0;
+}
+
+.data table tr th {
+    font-size: 20px;
+    background-color: rgba(157, 157, 157, 0.90);
+}
+
+
+.data table, th, td {
+    border: 1px solid rgb(0, 0, 0);
+    border-collapse: collapse;
+}
