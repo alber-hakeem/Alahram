@@ -1,1 +1,1 @@
-# Daily-Balances-For-Stores
+# Daily Balances For Stores.
